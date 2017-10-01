@@ -1,4 +1,5 @@
 #include "Rectangle.hpp"
+#include "geometry/include/boost/geometry.hpp"
 
 using namespace shapes;
 
