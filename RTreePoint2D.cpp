@@ -34,11 +34,11 @@ std::vector<double> RTreePoint2D::bounds(){
     auto bbox = this->rtree.bounds();
     auto min_corner = bbox.min_corner();
     auto max_corner = bbox.max_corner();
-    std::vector<double> x;
-    x.push_back(bg::get<0>(min_corner));
-    x.push_back(bg::get<1>(min_corner));
-    x.push_back(bg::get<0>(max_corner));
-    x.push_back(bg::get<1>(max_corner));
+    std::vector<double> boundaries;
+    boundaries.push_back(bg::get<0>(min_corner));
+    boundaries.push_back(bg::get<1>(min_corner));
+    boundaries.push_back(bg::get<0>(max_corner));
+    boundaries.push_back(bg::get<1>(max_corner));
 
-    return x;
+    return boundaries;
 }
