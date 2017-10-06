@@ -13,6 +13,11 @@ import cython
 import numpy as np
 cimport numpy as np
 
+from libcpp.memory cimport unique_ptr
+from cython.operator cimport dereference as deref
+
+
+
 cdef extern from "RTreePoint2D.hpp" namespace "rtrees":
     cdef cppclass RTreePoint2D:
         RTreePoint2D(int, int, int, int) except +
@@ -25,23 +30,21 @@ cdef extern from "RTreePoint2D.hpp" namespace "rtrees":
         void move(int, int)
 
 cdef class PyRTreePoint2D:
-    cdef RTreePoint2D *thisptr
+    cdef unique_ptr[RTreePoint2D] thisptr
     def __cinit__(self, int x0, int y0, int x1, int y1):
-        self.thisptr = new RTreePoint2D(x0, y0, x1, y1)
-    def __dealloc__(self):
-        del self.thisptr
+        self.thisptr.reset(new RTreePoint2D(x0, y0, x1, y1))
     def getLength(self):
-        return self.thisptr.getLength()
+        return deref(self.thisptr).getLength()
     def getHeight(self):
-        return self.thisptr.getHeight()
+        return deref(self.thisptr).getHeight()
     def getArea(self):
-        return self.thisptr.getArea()
+        return deref(self.thisptr).getArea()
     def move(self, dx, dy):
-        self.thisptr.move(dx, dy)
+        deref(self.thisptr).move(dx, dy)
     def insert_point(self, x, y, value):
-        self.thisptr.insertPoint(x, y, value)
+        deref(self.thisptr).insertPoint(x, y, value)
     def size(self):
-        return self.thisptr.size()
+        return deref(self.thisptr).size()
     @property
     def x0(self):
         return self.c_rect.x0
