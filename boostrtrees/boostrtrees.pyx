@@ -1,10 +1,7 @@
 """
-dot.pyx
+boostrtrees.pyx
 
-simple cython test of accessing numpy arrays's data and compute the dot product
-
-the C function: c_dot computes the inner product between two 1-d arrays.
-
+Cython wrapper of Boost geometry Rtrees
 """
 
 import cython
