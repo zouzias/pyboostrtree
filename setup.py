@@ -8,8 +8,8 @@ import numpy
 
 setup(
     cmdclass = {'build_ext': build_ext},
-    ext_modules = [Extension("rect",
-                             sources=["rect.pyx", "Rectangle.cpp"],
+    ext_modules = [Extension("boostrtrees",
+                 sources=["boostrtrees.pyx", "RTreePoint2D.cpp"],
 			     language="c++",
-                             include_dirs=[numpy.get_include()])],
+                 include_dirs=[numpy.get_include(), "/usr/local/Cellar/boost/1.65.1/include"])],
 )
