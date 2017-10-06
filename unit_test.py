@@ -8,20 +8,15 @@ designed to be run-able with py.test
 import pytest
 from boostrtrees import PyRTreePoint2D, np
 
-def test_area():
+def test_size():
     rec_ptr = PyRTreePoint2D(1, 2, 3, 4)
+    assert(rec_ptr.size() == 0)
     rec_ptr.insert_point(1, 2, 10)
     assert(rec_ptr.size() == 1)
     rec_ptr.insert_point(3, 4, 10)
     assert (rec_ptr.size() == 2)
     rec_ptr.insert_point(3, 4, 10)
     assert (rec_ptr.size() == 3)
-
-def test_size():
-    rec_ptr = PyRTreePoint2D(1, 2, 3, 4)
-    expectedArea = 4
-    recArea = rec_ptr.getArea()
-    assert np.abs(recArea - expectedArea) < 10e-3
 
 
 def test_knn():
@@ -32,3 +27,9 @@ def test_knn():
     rec_ptr.insert_point(8, 9, 4)
     assert (rec_ptr.knn(5, 6, 2) == [3, 2])
 
+
+def test_bounds():
+    rec_ptr = PyRTreePoint2D(1, 2, 3, 4)
+    rec_ptr.insert_point(3, 5, 10)
+    rec_ptr.insert_point(6, 7, 10)
+    assert rec_ptr.bounds() == {'min_x': 3.0, 'max_x': 6.0, 'min_y': 5.0, 'max_y': 7.0}
