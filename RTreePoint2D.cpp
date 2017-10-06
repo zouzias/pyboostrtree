@@ -31,7 +31,7 @@ long RTreePoint2D::size(){
     return this->rtree.size();
 }
 
-std::vector<long> RTreePoint2D::knn(int x, int y, int k){
+std::vector<long> RTreePoint2D::knn(double x, double y, int k){
     point_t p(x, y);
     std::vector<value> results;
     rtree.query(bgi::nearest(p, k), std::back_inserter(results));

@@ -27,8 +27,9 @@ def test_knn():
     rec_ptr.insert_point(8, 9, 4)
     assert (rec_ptr.knn(5, 6, 2) == [3, 2])
 
+
 def test_bounds():
     rec_ptr = PyRTreePoint2D(1, 2, 3, 4)
-    rec_ptr.insert_point(3, 4, 10)
-    rec_ptr.insert_point(4, 3, 10)
-    assert rec_ptr.bounds() == [3.0, 3.0, 4.0, 4.0]
+    rec_ptr.insert_point(3, 5, 10)
+    rec_ptr.insert_point(6, 7, 10)
+    assert rec_ptr.bounds() == {'min_x': 3.0, 'max_x': 6.0, 'min_y': 5.0, 'max_y': 7.0}

@@ -38,6 +38,7 @@ public:
     int getHeight();
     int getArea();
     void move(int dx, int dy);
+    std::vector<long> knn(double x, double y, int k);
     void insertPoint(double x, double y, long value);
     std::vector<double> bounds();
     long size();

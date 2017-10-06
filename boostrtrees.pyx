@@ -47,7 +47,8 @@ cdef class PyRTreePoint2D:
     def insert_point(self, x, y, value):
         deref(self.thisptr).insertPoint(x, y, value)
     def bounds(self):
-        return deref(self.thisptr).bounds()
+        bnds = deref(self.thisptr).bounds()
+        return {'min_x': bnds[0], 'max_x': bnds[2], 'min_y': bnds[1], 'max_y': bnds[3]}
     def size(self):
         return deref(self.thisptr).size()
     def knn(self, x, y, k):
