@@ -17,7 +17,6 @@ from libcpp.memory cimport unique_ptr
 from cython.operator cimport dereference as deref
 
 from libcpp.vector cimport vector
-from libcpp.pair cimport pair
 
 
 cdef extern from "RTreePoint2D.hpp" namespace "rtrees":
