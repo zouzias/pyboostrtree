@@ -1,4 +1,5 @@
 #include "RTreePoint2D.hpp"
+
 using namespace rtrees;
 
 RTreePoint2D::RTreePoint2D(int X0, int Y0, int X1, int Y1) {
@@ -39,6 +40,19 @@ std::vector<long> RTreePoint2D::knn(int x, int y, int k){
         values.insert(values.begin(), result.second);
     }
     return values;
+}
+
+std::vector<double> RTreePoint2D::bounds(){
+    auto bbox = this->rtree.bounds();
+    auto min_corner = bbox.min_corner();
+    auto max_corner = bbox.max_corner();
+    std::vector<double> x;
+    x.push_back(bg::get<0>(min_corner));
+    x.push_back(bg::get<1>(min_corner));
+    x.push_back(bg::get<0>(max_corner));
+    x.push_back(bg::get<1>(max_corner));
+
+    return x;
 }
 
 int RTreePoint2D::getArea() {
