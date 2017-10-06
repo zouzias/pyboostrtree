@@ -16,6 +16,7 @@ cimport numpy as np
 from libcpp.memory cimport unique_ptr
 from cython.operator cimport dereference as deref
 
+from libcpp.vector cimport vector
 
 
 cdef extern from "RTreePoint2D.hpp" namespace "rtrees":
@@ -27,6 +28,7 @@ cdef extern from "RTreePoint2D.hpp" namespace "rtrees":
         int getArea()
         void insertPoint(double, double, long)
         long size()
+        vector[long] knn(double, double, int)
         void move(int, int)
 
 cdef class PyRTreePoint2D:
@@ -45,6 +47,8 @@ cdef class PyRTreePoint2D:
         deref(self.thisptr).insertPoint(x, y, value)
     def size(self):
         return deref(self.thisptr).size()
+    def knn(self, x, y, k):
+        return deref(self.thisptr).knn(x, y, k)
     @property
     def x0(self):
         return self.c_rect.x0

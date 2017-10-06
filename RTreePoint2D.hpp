@@ -26,12 +26,11 @@ typedef bg::model::multi_polygon<polygon_t> mpolygon_t;
 
 // Typedefs for bbox
 typedef bg::model::box<point_t> bbox;
+typedef std::pair<point_t, long> value;
 
 class RTreePoint2D {
 
 private:
-
-    typedef std::pair<point_t, long> value;
 
     // create the rtree using default constructor
     bgi::rtree< value, bgi::rstar<16, 4> > rtree;
@@ -43,6 +42,7 @@ public:
     int getLength();
     int getHeight();
     void insertPoint(double x, double y, long value);
+    std::vector<long> knn(int x, int y, int k);
     long size();
     int getArea();
     void move(int dx, int dy);

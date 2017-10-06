@@ -1,5 +1,4 @@
 #include "RTreePoint2D.hpp"
-
 using namespace rtrees;
 
 RTreePoint2D::RTreePoint2D(int X0, int Y0, int X1, int Y1) {
@@ -29,6 +28,17 @@ void RTreePoint2D::insertPoint(double x, double y, long value)
 
 long RTreePoint2D::size(){
     return this->rtree.size();
+}
+
+std::vector<long> RTreePoint2D::knn(int x, int y, int k){
+    point_t p(x, y);
+    std::vector<value> results;
+    rtree.query(bgi::nearest(p, k), std::back_inserter(results));
+    std::vector<long> values;
+    for (auto result : results){
+        values.insert(values.begin(), result.second);
+    }
+    return values;
 }
 
 int RTreePoint2D::getArea() {
