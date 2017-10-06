@@ -31,13 +31,8 @@ typedef std::pair<point_t, long> value;
 
 class RTreePoint2D {
 public:
-    int x0, y0, x1, y1;
-    RTreePoint2D(int x0, int y0, int x1, int y1);
+    RTreePoint2D();
     ~RTreePoint2D();
-    int getLength();
-    int getHeight();
-    int getArea();
-    void move(int dx, int dy);
     std::vector<long> knn(double x, double y, int k);
     void insertPoint(double x, double y, long value);
     std::vector<double> bounds();
