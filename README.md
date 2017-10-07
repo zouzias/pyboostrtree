@@ -1,4 +1,4 @@
-## Python Wrapper of Boost C++ Geometry Rtree 
+## Python Wrapper of Boost C++ Geometry Rtree [![Build Status](https://travis-ci.org/zouzias/pyboostrtree.svg?branch=master)](https://travis-ci.org/zouzias/pyboostrtree)
 
 WIP
 
