@@ -6,9 +6,14 @@ before_install:
   - sudo apt-get update -qq
 cache: pip
 env:
-  - BOOST_VERSION="1.65.1" BOOST_VERSION_="${BOOST_VERSION//./_}" = BOOST_ROOT=`pwd`"/boost_${BOOST_VERSION_}"
+  - BOOST_VERSION="1.65.1"
+  - BOOST_VERSION="1.64.0"
+  - BOOST_VERSION="1.63.0"
+  - BOOST_VERSION="1.62.0"
 install:
   # C++14
+  - export BOOST_VERSION_="${BOOST_VERSION//./_}"
+  - export BOOST_ROOT=`pwd`"/boost_${BOOST_VERSION_}"
   - sudo apt-get install -qq g++-6 gcc git
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
   - wget https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/boost_${BOOST_VERSION//./_}.tar.gz
@@ -19,7 +24,6 @@ install:
   - ./build-module.sh
 python:
   - "2.7"
-  - "3.5"
   - "3.6"
 script:
   - py.test
