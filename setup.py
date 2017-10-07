@@ -9,7 +9,7 @@ import numpy
 
 __version__ = re.search(
     r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',  # It excludes inline comment too
-    io.open('__version__.py', encoding='utf_8').read()
+    io.open('version.py', encoding='utf_8').read()
     ).group(1)
 
 
