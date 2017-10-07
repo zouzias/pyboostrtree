@@ -6,8 +6,7 @@ before_install:
   - sudo apt-get update -qq
 cache: pip
 env:
-  - BOOST_VERSION="1.65.1"
-  - BOOST_ROOT=`pwd`'/geometry/include/boost'
+  - BOOST_VERSION="1.65.1" BOOST_ROOT=`pwd`'/geometry/include/boost'
 install:
   # C++14
   - sudo apt-get install -qq g++-6 gcc git
