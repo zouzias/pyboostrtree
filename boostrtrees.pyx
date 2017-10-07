@@ -29,12 +29,12 @@ cdef class PyRTreePoint2D:
     cdef unique_ptr[RTreePoint2D] thisptr
     def __cinit__(self):
         self.thisptr.reset(new RTreePoint2D())
-    def insert_point(self, x, y, value):
+    def insert_point(self, double x, double y, long value):
         deref(self.thisptr).insertPoint(x, y, value)
     def bounds(self):
         bnds = deref(self.thisptr).bounds()
         return {'min_x': bnds[0], 'max_x': bnds[2], 'min_y': bnds[1], 'max_y': bnds[3]}
     def size(self):
         return deref(self.thisptr).size()
-    def knn(self, x, y, k):
+    def knn(self, double x, double y, int k):
         return deref(self.thisptr).knn(x, y, k)
