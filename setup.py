@@ -20,7 +20,7 @@ if sys.platform == 'darwin':
     compile_args.append('-stdlib=libc++')
 
 if 'BOOST_ROOT' not in os.environ:
-    os.environ['BOOST_ROOT'] = '/usr/local/Cellar/boost/1.65.1'
+    os.environ['BOOST_ROOT'] = '/usr/local/Cellar/boost/1.65.1/include'
 
 print('BOOST_ROOT = {}'.format(os.environ['BOOST_ROOT']))
 
@@ -36,5 +36,5 @@ setup(
                 sources=["boostrtrees.pyx", "RTreePoint2D.cpp"],
                 language="c++",
                 extra_compile_args=compile_args,
-                include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT'] + '/include'])],
+                include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT']])],
 )
