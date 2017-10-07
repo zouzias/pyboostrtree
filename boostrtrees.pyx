@@ -8,7 +8,6 @@ import cython
 
 # import both numpy and the Cython declarations for numpy
 import numpy as np
-cimport numpy as np
 
 from libcpp.memory cimport unique_ptr
 from libcpp.vector cimport vector
@@ -31,6 +30,9 @@ cdef class PyRTreePoint2D:
         self.thisptr.reset(new RTreePoint2D())
     def insert_point(self, double x, double y, long value):
         deref(self.thisptr).insertPoint(x, y, value)
+    def insert_points(self, points):
+        for (x, y, value) in points:
+            deref(self.thisptr).insertPoint(x, y, value)
     def bounds(self):
         bnds = deref(self.thisptr).bounds()
         return {'min_x': bnds[0], 'max_x': bnds[2], 'min_y': bnds[1], 'max_y': bnds[3]}
