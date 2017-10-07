@@ -6,7 +6,7 @@ before_install:
   - sudo apt-get update -qq
 cache: pip
 env:
-  - BOOST_VERSION="1.61.0" BOOST_ROOT=`pwd`'/boost_${BOOST_VERSION//./_/}'
+  - BOOST_VERSION="1.61.0" BOOST_ROOT=`pwd`'/boost_${BOOST_VERSION//./_}'
 install:
   # C++14
   - sudo apt-get install -qq g++-6 gcc git
