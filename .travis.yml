@@ -6,13 +6,15 @@ before_install:
   - sudo apt-get update -qq
 cache: pip
 env:
-  - BOOST_VERSION="1.61.0" BOOST_ROOT=`pwd`'/boost_1_61_0'
+  - BOOST_VERSION="1.61.0" BOOST_ROOT=`pwd`'/boost_${BOOST_VERSION//./_/}'
 install:
   # C++14
   - sudo apt-get install -qq g++-6 gcc git
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-  - wget https://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.gz
+  - wget https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/boost_${BOOST_VERSION//./_}.tar.gz
   - tar zxf boost_1_61_0.tar.gz
+  - echo ${BOOST_VERSION}
+  - ls ${BOOST_ROOT}
   - pip install cython pytest scipy numpy
   - ./build-module.sh
 python:
