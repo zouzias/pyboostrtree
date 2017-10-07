@@ -1,7 +1,7 @@
 """
 boostrtrees.pyx
 
-Cython wrapper of Boost geometry Rtrees
+Cython wrapper of Boost C++ geometry rtree
 """
 
 import cython

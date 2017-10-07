@@ -9,7 +9,7 @@ import numpy
 
 __version__ = re.search(
     r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',  # It excludes inline comment too
-    io.open('boostrtrees/__init__.py', encoding='utf_8').read()
+    io.open('__version__.py', encoding='utf_8').read()
     ).group(1)
 
 
@@ -32,7 +32,7 @@ setup(
     packages = ['boostrtrees'],
     cmdclass = {'build_ext': build_ext},
                 ext_modules = [Extension("boostrtrees",
-                sources=["boostrtrees/boostrtrees.pyx", "boostrtrees/RTreePoint2D.cpp"],
+                sources=["boostrtrees.pyx", "RTreePoint2D.cpp"],
                 language="c++",
                 extra_compile_args=compile_args,
                 include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT'] + '/include'])],

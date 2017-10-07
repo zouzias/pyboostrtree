@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rm -rf build/
-rm *.so boostrtrees.cpp
+rm -rf boostrtrees/build/
+rm boostrtrees/*.so boostrtrees/boostrtrees.cpp
