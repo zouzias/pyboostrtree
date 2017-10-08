@@ -8,6 +8,7 @@ designed to be run-able with py.test
 import pytest
 from boostrtrees import PyRTreePoint2D, np
 
+
 def test_insert_points():
     rec_ptr = PyRTreePoint2D()
     pts = [(1.0,2.0,10),(1.0,4.0,11.0),(3.0,5.0,12),(5.0,7.0,13)]
