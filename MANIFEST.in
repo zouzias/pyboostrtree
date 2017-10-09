@@ -1,0 +1,4 @@
+graft include
+include README.md
+include LICENSE
+recursive-exclude tests *
