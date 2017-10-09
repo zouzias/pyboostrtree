@@ -26,4 +26,4 @@ python:
   - "2.7"
   - "3.6"
 script:
-  - ./run-tests.sh
+  - ./run_tests.sh
