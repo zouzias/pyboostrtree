@@ -14,7 +14,7 @@ __version__ = re.search(
     ).group(1)
 
 
-compile_args = ['-g', '-std=c++11']
+compile_args = ['-Wall', '-g', '-std=c++11']
 
 if sys.platform == 'darwin':
     compile_args.append('-mmacosx-version-min=10.7')
@@ -34,9 +34,9 @@ setup(
     packages=['boostrtrees'],
     cmdclass={'build_ext': build_ext},
     ext_modules=[Extension("boostrtrees",
-                           sources=["boostrtrees.pyx", "RTreePoint2D.cpp"],
+                           sources=["boostrtrees.pyx", "src/RTreePoint2D.cpp"],
                            language="c++",
                            extra_compile_args=compile_args,
-                           include_dirs=[os.environ['BOOST_ROOT']]
+                           include_dirs=[os.environ['BOOST_ROOT'], 'include/']
                            )],
 )
