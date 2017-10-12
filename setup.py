@@ -34,9 +34,9 @@ setup(
     packages=['boostrtrees'],
     cmdclass={'build_ext': build_ext},
     ext_modules=[Extension("boostrtrees",
-                           sources=["boostrtrees.pyx", "src/RTreePoint2D.cpp"],
+                           sources=["boostrtrees.pyx", "boostrtrees/src/RTreePoint2D.cpp"],
                            language="c++",
                            extra_compile_args=compile_args,
-                           include_dirs=[os.environ['BOOST_ROOT'], 'include/']
+                           include_dirs=[os.environ['BOOST_ROOT'], 'boostrtrees/include/']
                            )],
 )

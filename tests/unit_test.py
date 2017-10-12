@@ -9,8 +9,7 @@ import pytest
 import sys
 
 ## Make module boostrtrees available
-sys.path.append("..")
-from boostrtrees import PyRTreePoint2D, np
+from boostrtrees import PyRTreePoint2D
 
 
 def test_insert_points():
