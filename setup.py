@@ -10,7 +10,7 @@ from Cython.Distutils import build_ext
 
 
 def readme():
-    with open('README.rst') as f:
+    with open('README.md') as f:
         return f.read()
 
 __version__ = re.search(
