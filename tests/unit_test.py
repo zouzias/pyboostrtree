@@ -6,6 +6,10 @@ boostrtrees.pyx and RTreePoint2D.cpp test code
 designed to be run-able with py.test
 """
 import pytest
+import sys
+
+## Make module boostrtrees available
+sys.path.append("..")
 from boostrtrees import PyRTreePoint2D, np
 
 
