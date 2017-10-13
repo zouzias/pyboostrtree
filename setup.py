@@ -8,6 +8,11 @@ from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
 
+
+def readme():
+    with open('README.md') as f:
+        return f.read()
+
 __version__ = re.search(
     r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',  # It excludes inline comment too
     io.open('version.py', encoding='utf_8').read()
@@ -30,13 +35,15 @@ setup(
     version=__version__,
     url="https://github.com/zouzias/pyboostrtree.git",
     description="Python Wrapper of Boost Geometry Rtree",
+    long_description=readme(),
     license="Apache 2.0",
+    platforms=['Linux'],
     packages=['boostrtrees'],
     cmdclass={'build_ext': build_ext},
     ext_modules=[Extension("boostrtrees",
-                           sources=["boostrtrees.pyx", "src/RTreePoint2D.cpp"],
+                           sources=["boostrtrees.pyx", "boostrtrees/src/RTreePoint2D.cpp"],
                            language="c++",
                            extra_compile_args=compile_args,
-                           include_dirs=[os.environ['BOOST_ROOT'], 'include/']
+                           include_dirs=[os.environ['BOOST_ROOT'], 'boostrtrees/include/']
                            )],
 )
