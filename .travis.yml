@@ -20,10 +20,12 @@ install:
   - tar zxf boost_${BOOST_VERSION_}.tar.gz
   - echo ${BOOST_VERSION}
   - ls ${BOOST_ROOT}
-  - pip install cython pytest scipy numpy
+  - pip install cython pytest scipy numpy pytest-cov
   - ./build-module.sh
 python:
   - "2.7"
   - "3.6"
 script:
-  - py.test
+  - py.test --cov=./
+after_success:
+  - codecov
