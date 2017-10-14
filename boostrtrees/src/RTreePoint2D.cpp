@@ -15,6 +15,12 @@ void RTreePoint2D::insertPoint(double x, double y, long value)
     this->rtree.insert(std::make_pair(p, value));
 }
 
+void RTreePoint2D::insertPoints(double* points, long m, long n)
+{
+ /* TODO */
+}
+
+
 long RTreePoint2D::size(){
     return this->rtree.size();
 }
