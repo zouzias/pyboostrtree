@@ -41,7 +41,8 @@ cdef class PyRTreePoint2D:
             deref(self.thisptr).insertPoint(x, y, value)
     def insert_numpy_points(self, np.ndarray[double, ndim=2, mode="c"] points not None):
         cdef long m, n
-        m, n = input.shape[0], input.shape[1]
+        m, n = points.shape[0], points.shape[1]
+        assert(n == 3, "Input matrix must have 3 columns (x, y, value)")
         deref(self.thisptr).insertPoints(&points[0,0], m, n)
     def bounds(self):
         bnds = deref(self.thisptr).bounds()
