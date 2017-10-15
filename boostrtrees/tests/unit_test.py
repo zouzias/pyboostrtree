@@ -11,6 +11,7 @@ import numpy as np
 from boostrtrees import RTree
 import math
 
+
 def test_size():
     rec_ptr = RTree()
     assert(rec_ptr.size() == 0)
