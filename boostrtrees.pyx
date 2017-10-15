@@ -36,10 +36,7 @@ cdef class PyRTreePoint2D:
         self.thisptr.reset(new RTreePoint2D())
     def insert_point(self, double x, double y, long value):
         deref(self.thisptr).insertPoint(x, y, value)
-    def insert_points(self, points):
-        for (x, y, value) in points:
-            deref(self.thisptr).insertPoint(x, y, value)
-    def insert_numpy_points(self, np.ndarray[double, ndim=2, mode="c"] points not None):
+    def insert_points(self, np.ndarray[double, ndim=2, mode="c"] points not None):
         cdef long m, n
         m, n = points.shape[0], points.shape[1]
         assert(n == 3, "Input matrix must have 3 columns (x, y, value)")

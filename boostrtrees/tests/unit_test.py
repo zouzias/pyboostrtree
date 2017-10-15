@@ -12,13 +12,6 @@ import numpy as np
 from boostrtrees import PyRTreePoint2D
 
 
-def test_insert_points():
-    rec_ptr = PyRTreePoint2D()
-    pts = [(1.0,2.0,10),(1.0,4.0,11.0),(3.0,5.0,12),(5.0,7.0,13)]
-    rec_ptr.insert_points(pts)
-    assert (rec_ptr.size() == 4)
-
-
 def test_size():
     rec_ptr = PyRTreePoint2D()
     assert(rec_ptr.size() == 0)
@@ -50,7 +43,7 @@ def test_insert_numpy_points_size():
     rec_ptr = PyRTreePoint2D()
     pts = np.array([(1.0, 2.0, 10), (1.0, 4.0, 11.0),
                     (3.0, 5.0, 12), (5.0, 7.0, 13)])
-    rec_ptr.insert_numpy_points(pts)
+    rec_ptr.insert_points(pts)
     assert (rec_ptr.size() == 4)
 
 
@@ -58,7 +51,7 @@ def test_insert_numpy_points_bounds():
     rec_ptr = PyRTreePoint2D()
     pts = np.array([(1.0, 2.0, 10), (1.0, 4.0, 11.0),
                     (3.0, 5.0, 12), (5.0, 7.0, 13)])
-    rec_ptr.insert_numpy_points(pts)
+    rec_ptr.insert_points(pts)
     assert rec_ptr.bounds() == {'min_x': 1.0, 'max_x': 5.0, 'min_y': 2.0, 'max_y': 7.0}
 
 
@@ -66,6 +59,6 @@ def test_insert_numpy_points_withquery():
     rec_ptr = PyRTreePoint2D()
     pts = np.array([(1.0, 2.0, 10), (1.0, 4.0, 11.0),
                     (3.0, 5.0, 12), (5.0, 7.0, 13)])
-    rec_ptr.insert_numpy_points(pts)
+    rec_ptr.insert_points(pts)
     nn = rec_ptr.knn(0.0, 0.0, 1)
     assert nn == [10]
