@@ -1,5 +1,4 @@
-#ifndef RTREEADAPTER_DOT_HPP
-#define RTREEADAPTER_DOT_HPP
+#pragma once
 
 #include <vector>
 #include <boost/foreach.hpp>
@@ -33,16 +32,28 @@ class RTreePoint2D {
 public:
     RTreePoint2D();
     ~RTreePoint2D();
+
+    /** K-nearest neighbor search
+    */
     std::vector<long> knn(double x, double y, int k);
+
+    /** Insert single point
+    */
     void insertPoint(double x, double y, long value);
+
+    /** Insert points from numpy 2D array
+    */
     void insertPoints(double* points, long m, long n);
+
+    /** Returns bounding box containing all points
+    */
     std::vector<double> bounds();
-    long size();
+
+    long size(); // Returns number of points in Rtree
 
    private:
     // create the rtree using default constructor
     bgi::rtree< value, bgi::rstar<16, 4> > rtree;
 };
-}
 
-#endif
+} // end namespace rtree
