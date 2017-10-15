@@ -47,7 +47,13 @@ double RTreePoint2D::minDistance(double x, double y){
     std::vector<value> results;
     rtree.query(bgi::nearest(p, 1), std::back_inserter(results));
 
-    return 0.0;
+    double dist = std::numeric_limits<double>::max();
+	for ( const value& v: results){
+		double localDist = bg::distance(p, v.first);
+		if (localDist < dist) dist = localDist;
+	}
+
+    return dist;
 }
 
 
