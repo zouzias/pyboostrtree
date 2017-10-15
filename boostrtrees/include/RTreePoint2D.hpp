@@ -21,6 +21,15 @@ public:
      */
     std::vector<long> knn(double x, double y, int k);
 
+     /**
+     * Minimum distance from Rtree
+     *
+     * @param x
+     * @param y
+     * @return
+     */
+    double minDistance(double x, double y);
+
     /**
      * Insert a point with value in Rtree
      * @param x
