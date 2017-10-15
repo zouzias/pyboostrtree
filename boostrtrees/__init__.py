@@ -1,2 +1,2 @@
-from .boostrtrees import PyRTreePoint2D
-__all__ = ['PyRTreePoint2D']
+from .boostrtrees import RTree
+__all__ = ['RTree']
