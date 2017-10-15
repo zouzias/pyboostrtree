@@ -2,6 +2,7 @@
 boostrtrees.cpp
 
 
+cmake-build-debug/
 .idea/
 __pycache__/
 *.so

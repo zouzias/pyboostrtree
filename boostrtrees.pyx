@@ -30,7 +30,7 @@ cdef extern from "RTreePoint2D.hpp" namespace "rtrees":
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
-cdef class PyRTreePoint2D:
+cdef class RTree:
     cdef unique_ptr[RTreePoint2D] thisptr
     def __cinit__(self):
         self.thisptr.reset(new RTreePoint2D())
