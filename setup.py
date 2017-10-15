@@ -4,6 +4,7 @@ import sys
 import os
 import re
 import io
+import numpy
 from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
@@ -12,6 +13,7 @@ from Cython.Distutils import build_ext
 def readme():
     with open('README.md') as f:
         return f.read()
+
 
 __version__ = re.search(
     r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',  # It excludes inline comment too
@@ -44,6 +46,6 @@ setup(
                            sources=["boostrtrees.pyx", "boostrtrees/src/RTreePoint2D.cpp"],
                            language="c++",
                            extra_compile_args=compile_args,
-                           include_dirs=[os.environ['BOOST_ROOT'], 'boostrtrees/include/']
+                           include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT'], 'boostrtrees/include/']
                            )],
 )

@@ -1,4 +1,5 @@
 #include "RTreePoint2D.hpp"
+#include <cassert>
 
 using namespace rtrees;
 
@@ -14,6 +15,17 @@ void RTreePoint2D::insertPoint(double x, double y, long value)
     point_t p(x, y);
     this->rtree.insert(std::make_pair(p, value));
 }
+
+void RTreePoint2D::insertPoints(double* points, long m, long n)
+{
+    assert(n == 3); // points should be an m x 3 matrix
+
+    for (long i = 0 ; i < m * n; i = i + 3){
+        point_t p(points[i], points[i + 1]);
+        this->rtree.insert(std::make_pair(p, points[i + 2]));
+    }
+}
+
 
 long RTreePoint2D::size(){
     return this->rtree.size();
@@ -35,6 +47,7 @@ std::vector<double> RTreePoint2D::bounds(){
     auto min_corner = bbox.min_corner();
     auto max_corner = bbox.max_corner();
     std::vector<double> boundaries;
+
     boundaries.push_back(bg::get<0>(min_corner));
     boundaries.push_back(bg::get<1>(min_corner));
     boundaries.push_back(bg::get<0>(max_corner));

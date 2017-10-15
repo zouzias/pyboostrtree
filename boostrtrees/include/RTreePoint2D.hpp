@@ -35,6 +35,7 @@ public:
     ~RTreePoint2D();
     std::vector<long> knn(double x, double y, int k);
     void insertPoint(double x, double y, long value);
+    void insertPoints(double* points, long m, long n);
     std::vector<double> bounds();
     long size();
 
