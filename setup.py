@@ -11,7 +11,7 @@ from Cython.Distutils import build_ext
 
 
 def readme():
-    with open('README.md') as f:
+    with open('README.rst') as f:
         return f.read()
 
 
@@ -34,6 +34,7 @@ print('BOOST_ROOT = {}'.format(os.environ['BOOST_ROOT']))
 
 setup(
     author="Anastasios Zouzias",
+    author_email="zouzias@gmail.com",
     version=__version__,
     url="https://github.com/zouzias/pyboostrtree.git",
     description="Python Wrapper of Boost Geometry Rtree",
