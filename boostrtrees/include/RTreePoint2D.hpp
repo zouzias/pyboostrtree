@@ -51,7 +51,8 @@ public:
 
     long size(); // Returns number of points in Rtree
 
-   private:
+private:
+
     // create the rtree using default constructor
     bgi::rtree< value, bgi::rstar<16, 4> > rtree;
 };
