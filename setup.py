@@ -41,6 +41,7 @@ setup(
     long_description=readme(),
     license="Apache 2.0",
     platforms=['Linux'],
+    name="boostrtrees",
     packages=['boostrtrees'],
     cmdclass={'build_ext': build_ext},
     ext_modules=[Extension("boostrtrees",
@@ -49,4 +50,6 @@ setup(
                            extra_compile_args=compile_args,
                            include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT'], 'boostrtrees/include/']
                            )],
+    keywords=['rtree', 'boost'],
+    classifiers=[]
 )

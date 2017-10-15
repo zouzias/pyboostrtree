@@ -25,6 +25,7 @@ cdef extern from "RTreePoint2D.hpp" namespace "rtrees":
         void insertPoints(double* , long, long)
         long size()
         vector[long] knn(double, double, int)
+        double minDistance(double, double)
         vector[double] bounds()
         void move(int, int)
 
@@ -48,3 +49,5 @@ cdef class RTree:
         return deref(self.thisptr).size()
     def knn(self, double x, double y, int k):
         return deref(self.thisptr).knn(x, y, k)
+    def min_distance(self, double x, double y):
+        return deref(self.thisptr).minDistance(x, y)

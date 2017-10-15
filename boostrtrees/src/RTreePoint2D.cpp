@@ -42,6 +42,21 @@ std::vector<long> RTreePoint2D::knn(double x, double y, int k){
     return values;
 }
 
+double RTreePoint2D::minDistance(double x, double y){
+    point_t p(x, y);
+    std::vector<value> results;
+    rtree.query(bgi::nearest(p, 1), std::back_inserter(results));
+
+    double dist = std::numeric_limits<double>::max();
+	for ( const value& v: results){
+		double localDist = bg::distance(p, v.first);
+		if (localDist < dist) dist = localDist;
+	}
+
+    return dist;
+}
+
+
 std::vector<double> RTreePoint2D::bounds(){
     auto bbox = this->rtree.bounds();
     auto min_corner = bbox.min_corner();
