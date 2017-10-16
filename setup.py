@@ -51,5 +51,13 @@ setup(
                            include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT'], 'boostrtrees/include/']
                            )],
     keywords=['rtree', 'boost'],
-    classifiers=[]
+    setup_requires=['Cython >= 0.18'],
+    classifiers=[
+        'Intended Audience :: Developers',
+        'Operating System :: POSIX :: Linux',
+        'Programming Language :: Cython',
+        'Programming Language :: C++',
+        'Topic :: Software Development :: Libraries'
+],
+
 )

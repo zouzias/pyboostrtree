@@ -1,4 +1,5 @@
 graft boostrtrees
 include README.md
 include LICENSE
-recursive-exclude tests *
+include version.py
+include boostrtrees.pyx
