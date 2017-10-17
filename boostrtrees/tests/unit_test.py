@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
 """
-boostrtrees.pyx and RTreePoint2D.cpp test code
+boostrtrees.pyx and Rtree test code
 
 designed to be run-able with py.test
 """
 import pytest
-import sys
 import numpy as np
-from boostrtrees import RTree
+import sys
+from ..boostrtrees import RTree
 import math
 
 

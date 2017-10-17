@@ -7,7 +7,7 @@ import io
 import numpy
 from os import path
 from setuptools import setup, find_packages
-from distutils.extension import Extension
+from setuptools.extension import Extension
 from Cython.Distutils import build_ext
 
 here = path.abspath(path.dirname(__file__))
@@ -43,7 +43,7 @@ setup(
     license="Apache 2.0",
     platforms=['Linux'],
     name="boostrtrees",
-    packages=['boostrtrees'],
+    packages=find_packages(),
     install_requires=['numpy'],
     cmdclass={'build_ext': build_ext},
     ext_modules=[Extension("boostrtrees",
@@ -54,6 +54,7 @@ setup(
                            )],
     keywords=['rtree', 'boost'],
     setup_requires=['Cython >= 0.18'],
+    zip_safe=False,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -61,6 +62,4 @@ setup(
         'Programming Language :: Cython',
         'Programming Language :: C++',
         'Topic :: Software Development :: Libraries'
-],
-
-)
+])
