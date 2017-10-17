@@ -7,3 +7,10 @@ See https://www.codementor.io/arpitbhayani/host-your-python-package-using-github
 ```
 python setup.py sdist upload -r pypitest
 ```
+
+
+## Fetch package from pypitest
+
+```
+pip install --index-url https://test.pypi.org/simple/ your-package
+```
