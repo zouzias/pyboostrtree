@@ -5,15 +5,16 @@ import os
 import re
 import io
 import numpy
-from distutils.core import setup
+from os import path
+from setuptools import setup, find_packages
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
 
+here = path.abspath(path.dirname(__file__))
 
-def readme():
-    with open('README.rst') as f:
-        return f.read()
-
+# Get the long description from the README file
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 __version__ = re.search(
     r'__version__\s*=\s*[\'"]([^\'"]*)[\'"]',  # It excludes inline comment too
@@ -38,11 +39,12 @@ setup(
     version=__version__,
     url="https://github.com/zouzias/pyboostrtree.git",
     description="Python Wrapper of Boost Geometry Rtree",
-    long_description=readme(),
+    long_description=long_description,
     license="Apache 2.0",
     platforms=['Linux'],
     name="boostrtrees",
     packages=['boostrtrees'],
+    install_requires=['numpy'],
     cmdclass={'build_ext': build_ext},
     ext_modules=[Extension("boostrtrees",
                            sources=["boostrtrees.pyx", "boostrtrees/src/RTreePoint2D.cpp"],
@@ -53,6 +55,7 @@ setup(
     keywords=['rtree', 'boost'],
     setup_requires=['Cython >= 0.18'],
     classifiers=[
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Cython',
