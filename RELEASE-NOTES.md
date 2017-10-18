@@ -12,5 +12,5 @@ python setup.py sdist upload -r pypitest
 ## Fetch package from pypitest
 
 ```
-pip install --index-url https://test.pypi.org/simple/ your-package
+pip install --index-url https://test.pypi.org/simple/ boostrtrees
 ```
