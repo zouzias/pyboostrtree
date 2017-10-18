@@ -1,4 +1,6 @@
-graft boostrtrees
+graft include
+graft src
+graft tests
 include README.rst
 include LICENSE
 include version.py

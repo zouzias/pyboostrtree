@@ -5,6 +5,7 @@ import os
 import re
 import io
 import numpy
+from glob import glob
 from os import path
 from setuptools import setup, find_packages
 from setuptools.extension import Extension
@@ -33,6 +34,9 @@ if 'BOOST_ROOT' not in os.environ:
 
 print('BOOST_ROOT = {}'.format(os.environ['BOOST_ROOT']))
 
+
+sources = glob("*.pyx") + glob("src/*.cpp")
+
 setup(
     name="boostrtrees",
     author="Anastasios Zouzias",
@@ -44,16 +48,16 @@ setup(
     license="Apache 2.0",
     platforms=['Linux'],
     packages=find_packages(),
+    setup_requires=['Cython >= 0.18'],
     install_requires=['numpy'],
     cmdclass={'build_ext': build_ext},
     ext_modules=[Extension("boostrtrees",
-                           sources=["boostrtrees.pyx", "boostrtrees/src/RTreePoint2D.cpp"],
+                           sources=sources,
                            language="c++",
                            extra_compile_args=compile_args,
-                           include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT'], 'boostrtrees/include/']
+                           include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT'], 'include']
                            )],
     keywords=['rtree', 'boost'],
-    setup_requires=['Cython >= 0.18'],
     zip_safe=False,
     classifiers=[
         'Development Status :: 3 - Alpha',

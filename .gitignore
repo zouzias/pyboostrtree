@@ -1,3 +1,5 @@
+sdist/
+boostrtrees.egg-info/
 dist/
 MANIFEST
 .coverage
