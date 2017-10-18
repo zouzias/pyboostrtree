@@ -4,7 +4,7 @@ all: test
 
 clean:
 	rm *.so boostrtrees.cpp 
-	rm -rf __pycache__/ *.egg-info/
+	rm -rf build/ __pycache__/ *.egg-info/
 	rm -rf tests/__pycache__/
 
 build:
