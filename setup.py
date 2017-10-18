@@ -34,6 +34,7 @@ if 'BOOST_ROOT' not in os.environ:
 print('BOOST_ROOT = {}'.format(os.environ['BOOST_ROOT']))
 
 setup(
+    name="boostrtrees",
     author="Anastasios Zouzias",
     author_email="zouzias@gmail.com",
     version=__version__,
@@ -42,7 +43,6 @@ setup(
     long_description=long_description,
     license="Apache 2.0",
     platforms=['Linux'],
-    name="boostrtrees",
     packages=find_packages(),
     install_requires=['numpy'],
     cmdclass={'build_ext': build_ext},

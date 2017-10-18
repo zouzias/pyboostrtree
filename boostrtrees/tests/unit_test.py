@@ -7,8 +7,7 @@ designed to be run-able with py.test
 """
 import pytest
 import numpy as np
-import sys
-from ..boostrtrees import RTree
+from boostrtrees import RTree
 import math
 
 
