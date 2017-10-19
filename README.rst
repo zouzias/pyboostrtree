@@ -1,10 +1,12 @@
-Python Wrapper of Boost C++ Geometry Rtree |Build Status|
+Python Wrapper of Boost C++ Geometry Rtree |travis-master|
 ---------------------------------------------------------
 
-WIP
++------------+------------------+
+|   Branch   |   Build Status   |
++============+==================+
+| ``master`` | |travis-master|_ |
++------------+------------------+
 
-Based on `Cython
-Tutorial <http://docs.cython.org/en/latest/src/userguide/wrapping_CPlusPlus.html>`__
+.. |travis-master| image:: https://travis-ci.org/zouzias/pyboostrtree.svg?branch=master
+.. travis-master: https://travis-ci.org/zouzias/pyboostrtree
 
-.. |Build Status| image:: https://travis-ci.org/zouzias/pyboostrtree.svg?branch=master
-   :target: https://travis-ci.org/zouzias/pyboostrtree
