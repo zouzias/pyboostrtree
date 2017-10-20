@@ -1,4 +1,4 @@
-Python wrapper for Boost C++ Geometry Rtree |travis-master|
+Python wrapper for Boost C++ Geometry Rtree
 ---------------------------------------------------------
 
 +------------+------------------+
