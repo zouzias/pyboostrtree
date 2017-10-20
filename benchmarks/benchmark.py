@@ -6,7 +6,7 @@ import time
 import pandas as pd
 
 df = pd.read_csv('AIS2009.csv.gz', delimiter=';')
-locs = df[['Longitude','Latitude','MMSI_Number']].astype(np.double).as_matrix().copy(order='C')
+locs = df[['Longitude', 'Latitude', 'MMSI_Number']].astype(np.double).as_matrix().copy(order='C')
 
 rtree = RTree()
 
@@ -19,7 +19,7 @@ end = time.time()
 start_knn = time.time()
 print('Start knn searches')
 for l in range(locs.shape[0]):
-    knn = rtree.knn(locs[l,0], locs[l, 1], 3)
+    knn = rtree.knn(locs[l, 0], locs[l, 1], 3)
 
 print('End of knn searches')
 end_knn = time.time()
