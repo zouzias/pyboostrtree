@@ -12,14 +12,9 @@ env:
   - BOOST_VERSION="1.62.0"
 install:
   # C++14
-  - export BOOST_VERSION_="${BOOST_VERSION//./_}"
-  - export BOOST_ROOT=`pwd`"/boost_${BOOST_VERSION_}"
   - sudo apt-get install -qq g++-6 gcc git
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-  - wget https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/boost_${BOOST_VERSION//./_}.tar.gz
-  - tar zxf boost_${BOOST_VERSION_}.tar.gz
-  - echo ${BOOST_VERSION}
-  - ls ${BOOST_ROOT}
+  - git submodule update --init --recursive
   - pip install cython pytest scipy numpy pytest-cov
   - ./build-module.sh
 python:

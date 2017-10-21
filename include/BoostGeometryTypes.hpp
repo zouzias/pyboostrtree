@@ -2,7 +2,6 @@
 #define BOOSTRTREES_BOOSTGEOMETRYTYPES_HPP
 
 #include <vector>
-#include <boost/foreach.hpp>
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/geometries.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>
