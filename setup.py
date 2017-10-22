@@ -31,10 +31,11 @@ if sys.platform == 'darwin':
 
 if 'BOOST_ROOT' not in os.environ:
     print('=' * 40)
-    print('|  You must install Boost >= 1.62.0         |')
+    print('|  You must install Boost >= 1.59.0         |')
     print('|  and set BOOST_ROOT to boost include dir  |')
     print('|  MacOS: `brew install boost`              |')
     print('|  Ubuntu: apt-get install libboost-all-dev |')
+    print('|  Manually: wget https://sourceforge.net/projects/boost/files/boost/1.65.1/boost_1_65_1.tar.gz|')
     print('=' * 40)
     sys.exit()
 
@@ -62,7 +63,7 @@ setup(
                            extra_compile_args=compile_args,
                            include_dirs=[numpy.get_include(), os.environ['BOOST_ROOT'], 'include']
                            )],
-    keywords=['rtree', 'boost'],
+    keywords=['c++ boost geometry rtree'],
     zip_safe=False,
     classifiers=[
         'Development Status :: 3 - Alpha',

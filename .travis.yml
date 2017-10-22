@@ -10,6 +10,9 @@ env:
   - BOOST_VERSION="1.64.0"
   - BOOST_VERSION="1.63.0"
   - BOOST_VERSION="1.62.0"
+  - BOOST_VERSION="1.61.0"
+  - BOOST_VERSION="1.60.0"
+  - BOOST_VERSION="1.59.0"
 install:
   # C++14
   - export BOOST_VERSION_="${BOOST_VERSION//./_}"
