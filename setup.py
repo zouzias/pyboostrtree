@@ -30,10 +30,15 @@ if sys.platform == 'darwin':
     compile_args.append('-stdlib=libc++')
 
 if 'BOOST_ROOT' not in os.environ:
-    os.environ['BOOST_ROOT'] = '/usr/local/Cellar/boost/1.65.1/include'
+    print('=' * 40)
+    print('|  You must install Boost >= 1.62.0         |')
+    print('|  and set BOOST_ROOT to boost include dir  |')
+    print('|  MacOS: `brew install boost`              |')
+    print('|  Ubuntu: apt-get install libboost-all-dev |')
+    print('=' * 40)
+    sys.exit()
 
-print('BOOST_ROOT = {}'.format(os.environ['BOOST_ROOT']))
-
+print('Using boost from BOOST_ROOT = {}'.format(os.environ['BOOST_ROOT']))
 
 sources = glob("*.pyx") + glob("src/*.cpp")
 
@@ -65,5 +70,5 @@ setup(
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Cython',
         'Programming Language :: C++',
-        'Topic :: Software Development :: Libraries'
-])
+        'Topic :: Software Development :: Libraries']
+)
