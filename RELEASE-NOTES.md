@@ -5,7 +5,7 @@ See https://www.codementor.io/arpitbhayani/host-your-python-package-using-github
 # Release to test PyPi
 
 ```
-python setup.py sdist upload -r pypitest
+python setup.py sdist bdist_wheel upload -r pypitest
 ```
 
 
