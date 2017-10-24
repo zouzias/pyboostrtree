@@ -4,8 +4,10 @@ See https://www.codementor.io/arpitbhayani/host-your-python-package-using-github
 
 # Release to test PyPi
 
+Releases source code for MacOS, use `bdist_wheel` to release wheels as well.
+
 ```
-python setup.py sdist bdist_wheel upload -r pypitest
+python setup.py sdist  upload -r pypitest
 ```
 
 
