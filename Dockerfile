@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-WORKDIR /usr/local
+WORKDIR /opt
 
 RUN apt-get update -qq && apt-get install -qq software-properties-common wget && \
     add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
@@ -16,7 +16,7 @@ RUN mkdir -p /usr/include/boost
 RUN tar zxvf boost_1_65_1.tar.gz -C /usr/include/boost/
 ENV BOOST_ROOT /usr/include/boost/boost_1_65_1
 
-ADD . /usr/local
+ADD . /opt
 
 # Upload boostrtrees to PyPi
 RUN python3 setup.py sdist bdist_wheel
