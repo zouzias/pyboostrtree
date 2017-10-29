@@ -1,5 +1,7 @@
 FROM ubuntu:xenial
 
+MAINTAINER Anastasios Zouzias <XXX@gmail.com>
+
 WORKDIR /opt
 
 RUN apt-get update -qq && apt-get install -qq software-properties-common wget && \
