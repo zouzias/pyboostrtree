@@ -4,7 +4,7 @@ See https://www.codementor.io/arpitbhayani/host-your-python-package-using-github
 
 # Release to test PyPi
 
-Releases source code for MacOS, use `bdist_wheel` to release wheels as well.
+The following releases the Cython source code. To release a binary wheel use `bdist_wheel`.
 
 ```
 python setup.py sdist  upload -r pypitest
