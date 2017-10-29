@@ -11,6 +11,7 @@ from setuptools import setup, find_packages
 from setuptools.extension import Extension
 from Cython.Distutils import build_ext
 
+
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
@@ -37,7 +38,6 @@ if 'BOOST_ROOT' not in os.environ:
     print('|  Ubuntu: apt-get install libboost-all-dev |')
     print('|  Manually: wget https://sourceforge.net/projects/boost/files/boost/1.65.1/boost_1_65_1.tar.gz|')
     print('=' * 40)
-    sys.exit()
 
 print('Using boost from BOOST_ROOT = {}'.format(os.environ['BOOST_ROOT']))
 
@@ -55,7 +55,7 @@ setup(
     platforms=['Linux'],
     packages=find_packages(),
     setup_requires=['Cython >= 0.18'],
-    install_requires=['numpy'],
+    install_requires=['numpy', 'cython'],
     cmdclass={'build_ext': build_ext},
     ext_modules=[Extension("boostrtrees",
                            sources=sources,
