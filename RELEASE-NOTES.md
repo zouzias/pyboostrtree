@@ -6,7 +6,7 @@ See https://www.codementor.io/arpitbhayani/host-your-python-package-using-github
 
 The following releases the Cython source code. To release a binary wheel use `bdist_wheel`.
 
-```
+```bash
 python setup.py sdist  upload -r pypitest
 ```
 
@@ -32,6 +32,21 @@ password: YOUR_USERNAME_HERE
 
 ## Fetch package from pypitest
 
-```
+```bash
 pip install --index-url https://test.pypi.org/simple/ boostrtrees
 ```
+
+
+## Signed package release
+
+```bash
+python setup.py sdist upload --sign
+```
+
+To verify,
+
+```bash
+gpg --verify dist/boostrtrees-0.0.1a3.tar.gz.asc dist/boostrtrees-0.0.1a3.tar.gz
+```
+
+Reference: https://www.davidfischer.name/2012/05/signing-and-verifying-python-packages-with-pgp/
