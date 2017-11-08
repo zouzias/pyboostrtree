@@ -2,13 +2,10 @@
 set -e -x
 
 # Install a system package required by our library
-yum -y update
-yum install -y boost
 
 ls -al /opt/python/
 rm -rf /opt/python/cp26-*
 rm -rf /opt/python/cp33-*
-rm -rf /opt/python/cp34-*
 ls -al /opt/python/
 
 # Compile wheels
@@ -24,6 +21,6 @@ done
 
 # Install packages and test
 for PYBIN in /opt/python/*/bin/; do
-#    "${PYBIN}/pip" install python-manylinux-demo --no-index -f /io/wheelhouse
-#    (cd "$HOME"; "${PYBIN}/nosetests" pymanylinuxdemo)
+    "${PYBIN}/pip" install boostrtrees --no-index -f /io/wheelhouse
+    (cd "$HOME"; "${PYBIN}py.test" boostrtrees)
 done

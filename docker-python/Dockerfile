@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-MAINTAINER Anastasios Zouzias <XXX@gmail.com>
+MAINTAINER Anastasios Zouzias <my_last_name@gmail.com>
 
 WORKDIR /opt
 
