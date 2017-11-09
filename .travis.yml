@@ -24,7 +24,7 @@ install:
   - echo ${BOOST_VERSION}
   - ls ${BOOST_ROOT}
   - pip install cython pytest scipy numpy pytest-cov
-  - ./build-module.sh
+  - python setup.py build_ext --inplace
 python:
   - "2.7"
   - "3.6"
