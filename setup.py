@@ -28,7 +28,6 @@ compile_args = ['-Wall', '-g', '-std=c++11']
 
 if sys.platform == 'darwin':
     compile_args.append('-mmacosx-version-min=10.7')
-    compile_args.append('-stdlib=libc++')
 
 if 'BOOST_ROOT' not in os.environ:
     print('=' * 40)
