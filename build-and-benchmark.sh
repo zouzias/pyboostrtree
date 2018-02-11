@@ -13,6 +13,6 @@ python setup.py sdist
 
 virtualenv sdist
 source sdist/bin/activate
-sdist/bin/pip install numpy cython
+sdist/bin/pip install numpy cython pandas
 sdist/bin/pip install  --upgrade dist/boostrtrees-${VERSION}.tar.gz
-cd sdist/ && python -c 'from boostrtrees import RTree'
+cd benchmarks/ && python benchmark.py

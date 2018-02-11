@@ -11,8 +11,13 @@ clean:
 build:
 	python setup.py build_ext --inplace
 
+# Run tests
 test: build
 	py.test
+
+# Run package benchmarks
+benchmark: build
+	cd benchmarks/ && python benchmark.py
 
 docker: clean
 	docker build docker-python/ -t boostrtrees
