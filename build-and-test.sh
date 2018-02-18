@@ -5,14 +5,16 @@
 # Package version
 VERSION=`cat version.py | awk '{print $3}' | sed "s/'//g"`
 
-rm -rf sdist/
+rm -rf env/
+rm -rf dist/
 
 make clean
 pip install cython disttools
 python setup.py sdist
 
-virtualenv sdist
-source sdist/bin/activate
-sdist/bin/pip install numpy cython
-sdist/bin/pip install  --upgrade dist/boostrtrees-${VERSION}.tar.gz
-cd sdist/ && python -c 'from boostrtrees import RTree'
+virtualenv env
+source env/bin/activate
+env/bin/pip install numpy cython
+env/bin/pip install  --upgrade dist/boostrtrees-${VERSION}.tar.gz
+python -c 'from boostrtrees import RTree'
+deactivate
