@@ -49,4 +49,13 @@ To verify,
 gpg --verify dist/boostrtrees-0.0.1a3.tar.gz.asc dist/boostrtrees-0.0.1a3.tar.gz
 ```
 
-Reference: https://www.davidfischer.name/2012/05/signing-and-verifying-python-packages-with-pgp/
+### Signed package release of manylinux1
+
+```bash
+twine upload -r pypitest --sign dist/boostrtrees-*many*
+```
+
+Reference: 
+
+* https://www.davidfischer.name/2012/05/signing-and-verifying-python-packages-with-pgp/
+* https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/
