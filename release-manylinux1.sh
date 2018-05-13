@@ -11,6 +11,6 @@ echo "Building manylinux1 wheels"
 ./build-manylinux1.sh
 
 echo "Uploading wheels to pypitest"
-twine upload -r pypitest --sign wheelhouse/boostrtrees-0.0.1a*many*
+twine upload -r pypitest --sign wheelhouse/boostrtrees-*many*
 
-echo "Go to https://testpypi.python.org/pypi/boostrtrees/0.0.1a1 to check the release"
+echo "Go to https://testpypi.python.org/pypi/boostrtrees/X.Y.Z to check the release"
