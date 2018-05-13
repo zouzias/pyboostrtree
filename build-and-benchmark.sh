@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Build and bechmark the python package within a virtualenv
+# Build and benchmark the python package within a virtualenv
 
 # Package version
 VERSION=`cat version.py | awk '{print $3}' | sed "s/'//g"`
