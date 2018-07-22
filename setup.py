@@ -24,11 +24,12 @@ __version__ = re.search(
     ).group(1)
 
 
-# Last argument is required, see https://stackoverflow.com/questions/47978722/missing-c-std-library-methods-and-other-errors-while-compiling-eos-on-ubuntu-1
-compile_args = ['-Wall', '-g', '-std=c++11', '-stdlib=libc++']
+compile_args = ['-Wall', '-g', '-std=c++11']
 
+# Last argument is required, see https://stackoverflow.com/questions/47978722/missing-c-std-library-methods-and-other-errors-while-compiling-eos-on-ubuntu-1
 if sys.platform == 'darwin':
     compile_args.append('-mmacosx-version-min=10.7')
+    compile_args.append('-stdlib=libc++')
 
 if 'BOOST_ROOT' not in os.environ:
     print('=' * 40)
