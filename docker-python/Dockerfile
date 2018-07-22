@@ -13,10 +13,10 @@ RUN apt-get install -y python3 python3-dev python3-pip && \
     pip3 install --upgrade pip && \
     pip3 install cython numpy
 
-# Install Boost C++ 1.65.1
-RUN wget https://sourceforge.net/projects/boost/files/boost/1.65.1/boost_1_65_1.tar.gz
+# Install Boost C++ 1.67.0
+RUN wget https://sourceforge.net/projects/boost/files/boost/1.67.0/boost_1_67_0.tar.gz
 RUN mkdir -p /usr/include/boost
-RUN tar zxvf boost_1_65_1.tar.gz -C /usr/include/boost/
-ENV BOOST_ROOT /usr/include/boost/boost_1_65_1
+RUN tar zxvf boost_1_67_0.tar.gz -C /usr/include/boost/
+ENV BOOST_ROOT /usr/include/boost/boost_1_67_0
 
 WORKDIR /opt/python-package
