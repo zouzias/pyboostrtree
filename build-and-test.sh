@@ -9,7 +9,7 @@ rm -rf env/
 rm -rf dist/
 
 make clean
-pip install cython disttools
+pip install virtualenv cython disttools
 python setup.py sdist
 
 virtualenv env
