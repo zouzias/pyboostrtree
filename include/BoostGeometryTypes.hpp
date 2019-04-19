@@ -29,6 +29,10 @@ typedef bg::model::multi_polygon <polygon_t> mpolygon_t;
 typedef bg::model::box <point_t> bbox;
 typedef std::pair<point_t, long> value;
 
+typedef bg::model::point<float, 3, bg::cs::cartesian> point3d;
+typedef bg::model::box<point3d> bbox3d;
+typedef std::pair<point3d, long> value3d;
+
 }
 
 #endif //BOOSTRTREES_BOOSTGEOMETRYTYPES_HPP
